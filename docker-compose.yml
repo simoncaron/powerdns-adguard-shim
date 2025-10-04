@@ -1,0 +1,15 @@
+services:
+  pdns-adguard-shim:
+    build: .
+    container_name: pdns-adguard-shim
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    env_file:
+      - .env
+    networks:
+      - pdns-net
+
+networks:
+  pdns-net:
+    driver: bridge
